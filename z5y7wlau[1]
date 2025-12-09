@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module" crossorigin src="https://cdnassets.roboflow.com/_rapid/assets/polyfills-RiJUfF6B.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Roboflow Rapid: Build a Vision Model in 5 Minutes</title>
+    <meta name="description" content="Train a custom computer vision model and get a serverless API you can use to run your model." />
+    <!-- Responsive scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="My App" />
+    <!-- Android Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnassets.roboflow.com/_rapid/images/logo.png" as="image" type="image/png" />
+    <link rel="preload" href="https://cdnassets.roboflow.com/_rapid/images/running_lenny_outline.gif" as="image" type="image/gif" />
+    <!-- Preconnect to video CDN if you're using one -->
+    <link rel="preconnect" href="https://cdnassets.roboflow.com/_rapid/videos" />
+    <script src="https://kit.fontawesome.com/c9c3956d39.js" ></script>
+    <script type="module"  src="https://cdnassets.roboflow.com/_rapid/assets/index-yX2Eq2wU.js"></script>
+    <link rel="modulepreload"  href="https://cdnassets.roboflow.com/_rapid/assets/react-router-mBS11gBG.js">
+    <link rel="stylesheet"  href="https://cdnassets.roboflow.com/_rapid/assets/index-E-HHD0tx.css">
+      
+            <script>
+                !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){try{var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.crossOrigin="anonymous";t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];if(r&&r.parentNode){r.parentNode.insertBefore(t,r)}else{document.head.appendChild(t)}}catch(e){console.error("Failed to load Segment analytics:",e)}analytics._loadOptions=n};analytics._writeKey="eXtDJCxffULSITBEV2KMzv7MwuBkMvty";analytics.SNIPPET_VERSION="5.2.0";
+                analytics.load("eXtDJCxffULSITBEV2KMzv7MwuBkMvty");
+                analytics.page();
+                }}();
+            </script>
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!-- In development, use type="module" -->
+    <!-- In production, this will be replaced with a regular script tag -->
+    <!-- SVG Definitions -->
+    <svg style="display: none">
+      <defs>
+        <!-- Logomark Symbol -->
+        <symbol id="logomark" viewBox="0 0 20 20">
+          <g clip-path="url(#clip-path-logomark)">
+            <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10M9.311 8.922c.924-.719.519-1.703-1.008-1.513-1.767.22-4.02 1.948-4.582 4.023a4.3 4.3 0 00-.145 1.035 3.8 3.8 0 00.129 1.018 3.8 3.8 0 00.411.968q.142.237.313.454c.39.493.889.906 1.421 1.234.116.072.24.14.375.147.198.01.348-.148.356-.34a.37.37 0 00-.048-.2c-.448-.79-.818-1.961-.742-2.7.165-1.597 1.59-2.67 2.925-3.673q.304-.227.595-.453m6.781 2.868a.57.57 0 01.584.338c.098.234.011.533-.094.751-.543 1.121-1.14 1.874-1.556 2.315-1.238 1.378-3.174 2.28-4.963 1.54-1.028-.426-1.832-1.382-1.975-2.499-.206-1.615 1.2-2.703 2.438-3.66.36-.279.707-.546.995-.813.782-.723 1.638-1.836 1.24-2.969-.383-1.084-1.658-1.557-2.706-1.666-1.033-.107-2.083.106-3.02.544-.735.344-1.354.866-1.933 1.427q-.106.103-.21.208c-.12.12-.238.24-.364.352-.171.153-.377.294-.61.325-.347.047-.677-.206-.633-.573.072-.593.493-1.11.863-1.552q.344-.41.737-.773a7.8 7.8 0 011.998-1.333 8.2 8.2 0 015.705-.428c1.47.435 2.926 1.457 3.186 3.067.055.342.055.691.006 1.034-.173 1.222-.908 2.314-1.741 3.192-.493.52-1.06.939-1.628 1.358-.453.335-.907.67-1.323 1.057-.547.509-.77 1.134-.11 1.662.904.46 1.655.222 2.476-.277a5.1 5.1 0 001.259-1.12 10 10 0 00.608-.83c.105-.162.212-.327.353-.455a.66.66 0 01.418-.222"
+                fill="#6d28d9"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip-path-logomark">
+              <path style="fill: #6d28d9" d="M0 0h20v20H0z" />
+            </clipPath>
+          </defs>
+        </symbol>
+
+        <!-- Wordmark Symbol -->
+        <symbol id="wordmark" viewBox="0 0 450 82.74">
+          <path
+              d="M17.41 39.7h.19c3.35-6.03 9.09-8.71 15.88-8.71h3.35v16.74c-2.39-1.34-4.69-1.63-7.37-1.63-9.66 0-12.06 6.41-12.06 14.83v19.81H0V31.66h17.41zm82.32 16.55c0 16.65-13.78 26.12-29.57 26.12-15.69 0-29.57-9.38-29.57-26.12s13.78-26.22 29.57-26.22 29.57 9.47 29.57 26.22m-40.77 0c0 6.22 4.11 11 11.19 11s11.19-4.78 11.19-11c0-6.03-4.11-11.1-11.19-11.1-7.07 0-11.19 5.07-11.19 11.1m46.09-54.92h17.41v35.12c3.73-4.31 9.57-6.41 15.21-6.41 14.54 0 24.59 12.06 24.59 26.12 0 14.16-10.14 26.22-24.78 26.22-5.74 0-11.67-2.2-14.83-7.08h-.19v5.45h-17.41zm16.84 54.92c0 6.22 4.11 11 11.19 11s11.19-4.78 11.19-11c0-6.03-4.11-11.1-11.19-11.1-7.07 0-11.19 5.07-11.19 11.1m104.37 0c0 16.65-13.78 26.12-29.57 26.12-15.69 0-29.57-9.38-29.57-26.12s13.78-26.22 29.57-26.22 29.57 9.47 29.57 26.22m-40.76 0c0 6.22 4.11 11 11.19 11s11.19-4.78 11.19-11c0-6.03-4.11-11.1-11.19-11.1s-11.19 5.07-11.19 11.1m67.93 24.49h-17.41V46.01h-6.12V31.66h6.12v-6.22c0-6.79.19-11.77 4.98-17.22 4.31-5.07 10.53-7.85 17.13-7.85 2.68 0 5.07.48 7.46 1.72v15.02c-2.01-.86-3.83-1.63-6.12-1.63-4.5 0-6.03 2.68-6.03 8.23v7.94h12.15V46h-12.15v34.74zm35.88 0H271.9V1.33h17.41zm64.57-24.49c0 16.65-13.78 26.12-29.57 26.12-15.69 0-29.57-9.38-29.57-26.12s13.78-26.22 29.57-26.22 29.57 9.47 29.57 26.22m-40.76 0c0 6.22 4.11 11 11.19 11s11.19-4.78 11.19-11c0-6.03-4.11-11.1-11.19-11.1-7.07 0-11.19 5.07-11.19 11.1m68.99 2.01 12.34-26.6h10.33l12.34 26.6 12.34-26.6h19.23l-25.64 49.09h-11.29l-12.15-26.89-12.15 26.89h-11.29l-25.64-49.09h19.33z"
+              style="fill: #6d28d9"
+          />
+        </symbol>
+      </defs>
+    </svg>
+    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script nomodule crossorigin id="vite-legacy-polyfill" src="https://cdnassets.roboflow.com/_rapid/assets/polyfills-legacy-CkApplOY.js"></script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="https://cdnassets.roboflow.com/_rapid/assets/index-legacy-CuCzsHXn.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  </body>
+</html>
